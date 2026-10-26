@@ -24,11 +24,36 @@
 ------------------------------------------------------------------------
 2. Opening and Closing Binary Files
 	The <*fstream*> header:
-		including *fstream* gives you access to three file stream classes:
+		including *fstream* to your progream gives you access to three file stream classes:
 			ofstream - write to a file
+				creates a missing file, replaces existing contents
 			ifstream - read from a file
+				needs an existing file
 			fstream - read, write, or both
+				also needs an existing file if opened with in | out
 		works with both text and binary files 
 	Opening a Binary File 
 		ofstream output("score.bin", ios_base::binary);
 			where arg1 is filename, arg2 is opening mode
+
+| Modes            | Purpose           |
+| ---------------- | ----------------- |
+| ios_base::in     | read              |
+| ios_base::out    | write             |
+| ios_base::binary | binary mode       |
+| ios_base::app    | append to the end |
+		you can also combine different modes with "|"
+			ex. "fstream file("score.bin", ios_base::in | ios_base::out | ios_base::binary);"
+	Check and Close:
+		if (!output.is_open()) {
+			cout << "Could not open score.bin.|n";
+			return 1;
+		}
+		output.close();
+		**Why opening may fail:** a missing input file, incorrect path, inaccessible permissions, nonexistent destination directory, or an operating-system restriction. A missing output filename alone does not normally cause failure: `ofstream` creates it.
+		
+
+| Syntax Breakdown |         |
+| ---------------- | ------- |
+| Syntax           | Meaning |
+|                  |         |
