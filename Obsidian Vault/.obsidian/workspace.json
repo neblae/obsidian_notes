@@ -55,7 +55,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#WritingBinaryFileswithwrite",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -79,11 +79,13 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "ebcace70eb92d21c",
@@ -189,7 +191,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "01fb18d08d0b585e",
+  "active": "e307c8d57c47d567",
   "lastOpenFiles": [
     "Pasted image 20261026192133.png",
     "prog2/class lectures",

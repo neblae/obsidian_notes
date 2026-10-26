@@ -114,10 +114,42 @@ _______
 			| 12-19        | accuracy    | double | 8           |
 			|              | total       |        | 20 bytes    |
 ______
-
 4. #ReadingBinaryFileswithRead
-	Reading with read();
+	**reading with read();**
 		use read(); to restore the bytes written by write()
 		>> interprets formatted text, get() reads character data
 		![[Pasted image 20261026192133.png|415]]
+	**reading different types** 
+		use &marker for char directly; the rest must cast the address to a writable char*:
+		|Type|Binary reading|
+			|`char`|`input.read(&marker, sizeof(marker));`|
+			|`bool`|`input.read(reinterpret_cast<char*>(&passed), sizeof(passed));`|
+			|`short`|`input.read(reinterpret_cast<char*>(&level), sizeof(level));`|
+			|`int`|`input.read(reinterpret_cast<char*>(&score), sizeof(score));`|
+			|`float`|`input.read(reinterpret_cast<char*>(&temperature), sizeof(temperature));`|
+			|`double`|`input.read(reinterpret_cast<char*>(&accuracy), sizeof(accuracy));`| 
+		|Syntax|Meaning|
+			|`ifstream input(...)`|Opens a file for input.|
+			|`"../03/data.bin"`|Relative path to the file created in Activity 03.|
+			|`input.read(...)`|Copies file bytes into destination memory.|
+			|`&variable`|Destination’s address.|
+			|`reinterpret_cast<char*>(...)`|Supplies a writable byte pointer.|
+			|`sizeof(variable)`|Number of bytes to read.|
+			|`'\0'`|Null character used to initialize the marker.|
+			|`if (!input)`|Detects a failed/incomplete read.|
+	**order matters**
+		binary files don't automatically label values, which means the reader has to *match a type, size, order, and compatible byte representation*
+		|Writer order|Reader order|
+			|marker|marker|
+			|passed|passed|
+			|level|level|
+			|score|score|
+			|temperature|temperature|
+			|accuracy|accuracy|
+		every time read() iterates, it advances the file position:
+			important: check **if (!input)** before using the restored values 
+______
+
+5. #BinaryFileLayoutandByteOffsets 
+	**what is a byte offset?**
 		
