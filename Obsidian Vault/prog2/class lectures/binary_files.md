@@ -67,13 +67,59 @@
 | output.close()                             | closes the file                       |
 | return 1                                   | ends main() with nonzero result       |
 3. Writing Binary Files with write():
-	using write():
+	**using write():**
 		you can use write() to copy a variables actual bytes;
 		in comparison, << only produces formatted text, even when a stream is opened in binary mode
 		"output.write(reinterpret_cast<char*>(&score), sizeof(score));"
 			arg1 is the address, where the data begins in memory
 			arg2 is the byte count, which is how many bytes the function needs to write
-	why do we need char*?
+	**why do we need char*?:**
 		write() needs a const char* to access data as a sequence of bytes
 		C++ guarantees that sizeof(char) == 1, so while char* accesses memory one byte at at time, int* points at an integer which can occupy several bytes
-		
+		**since &score is an int*, which can't be directly passed to write(), cast it to the required character-pointer type:**
+			output.write(reinterpret_cast<char*>(&score), sizeof(score));
+		this is because (char*)&score does not specify what the argument will be converted to, while reinterpret_cast *explicitly signals a low level reinterpretation* 
+		The four c++ named casts:
+			static cast:
+				supported value/type conversions
+					static_cast<*int*>(3.7) = 3
+			reinterpret_cast
+				low-level reinterpretation (*bytes stay the same, compiler reads a different type*), usually pointer conversions
+					reinterpret_cast<char*>(&score)
+			const_cast:
+				adds or removes const/volatile qualification
+				*note: volatile means that the value can change on its own, so the compiler will always reread it; opposite of const*
+					const_cast<int*>(ptr)
+			dynamic_cast:
+				safely casts a base pointer down to a derived type by checking the object's real type at runtime. returns nullptr if the guess is wrong, and the base class needs a virtual function 
+					dynamic_cast<Derived*>(basePtr) 
+	**writing different fundamental types**
+		a char doesn't need a cast since &marker already is type char*:
+			output.write(&marker, sizeof(marker));
+		**Type** | **Binary writing**
+		bool - output.write(reinterpret_cast<char*>(&passed), sizeof(passed));
+		short - output.write(reinterpret_cast<char*>(&level), sizeof(level));
+		int - output.write(reinterpret_cast<char*>(&score), sizeof(score));
+		float - output.write(reinterpret_cast<char*>(&temperature), sizeof(temperature));
+		double - output.write(reinterpret_cast<char*>(&accuracy), sizeof(accuracy));
+		-
+		**Syntax | Meaning**
+		output.write(...) | writes the specified raw bytes
+		&variable | gets the variable's address
+		reinterpret_cast<char*>(...) | converts the address to a byte access pointer
+		sizeof(variable) | returns the variables size in bytes
+		24.5f | the f suffix indicates a float
+		98.75 | a floating-point literal without a suffix is double
+		if (!output) | checks the streams failure state 
+	**what does the file contain?**
+		each write() continues one after the other with no automatic separators 
+
+| File offsets | Variable    | Type   | Common Size |
+| ------------ | ----------- | ------ | ----------- |
+| 0            | marker      | char   | 1           |
+| 1            | passed      | bool   | 1           |
+| 2-3          | level       | short  | 2           |
+| 4-7          | score       | int    | 4           |
+| 8-11         | temperature | float  | 4           |
+| 12-19        | accuracy    | double | 8           |
+|              | total       |        | 20 bytes    |
