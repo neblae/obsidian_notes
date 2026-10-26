@@ -46,14 +46,34 @@
 			ex. "fstream file("score.bin", ios_base::in | ios_base::out | ios_base::binary);"
 	Check and Close:
 		if (!output.is_open()) {
-			cout << "Could not open score.bin.|n";
+			cout << "Could not open score.bin.\n";
 			return 1;
 		}
 		output.close();
 		**Why opening may fail:** a missing input file, incorrect path, inaccessible permissions, nonexistent destination directory, or an operating-system restriction. A missing output filename alone does not normally cause failure: `ofstream` creates it.
 		
 
-| Syntax Breakdown |         |
-| ---------------- | ------- |
-| Syntax           | Meaning |
-|                  |         |
+| Syntax Breakdown                           |                                       |
+| ------------------------------------------ | ------------------------------------- |
+| Syntax                                     | Meaning                               |
+| *# include <*fstream*>*                    | Makes file stream classes available   |
+| ofstream output(...)                       | creates an output stream named output |
+| "score.bin"                                | filename                              |
+| ios_base::binary                           | binary opening mode                   |
+| ios_base::in, ios_base::out, ios_base::app | input, output, append flags           |
+| ''                                         | combines opening flags                |
+| output.is_open()                           | whether the stream has an open file   |
+| !                                          | negates the condition                 |
+| output.close()                             | closes the file                       |
+| return 1                                   | ends main() with nonzero result       |
+3. Writing Binary Files with write():
+	using write():
+		you can use write() to copy a variables actual bytes;
+		in comparison, << only produces formatted text, even when a stream is opened in binary mode
+		"output.write(reinterpret_cast<char*>(&score), sizeof(score));"
+			arg1 is the address, where the data begins in memory
+			arg2 is the byte count, which is how many bytes the function needs to write
+	why do we need char*?
+		write() needs a const char* to access data as a sequence of bytes
+		C++ guarantees that sizeof(char) == 1, so while char* accesses memory one byte at at time, int* points at an integer which can occupy several bytes
+		
