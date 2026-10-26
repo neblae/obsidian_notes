@@ -79,13 +79,11 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "ebcace70eb92d21c",
@@ -191,8 +189,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e307c8d57c47d567",
+  "active": "01fb18d08d0b585e",
   "lastOpenFiles": [
+    "Pasted image 20261026192133.png",
     "prog2/class lectures",
     "prog2/discussion lectures/File io.md",
     "prog2/class lectures/binary_files.md",
