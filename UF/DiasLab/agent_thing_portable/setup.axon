@@ -1,0 +1,3 @@
+libAdd(["hx.point","hx.conn","hx.sql","hx.mqtt","hx.comps"].addAll(libs({installed}).findAll(x=>x->name.startsWith("pl.")).colToList("name")).findAll(n=>libs().find(x=>x->name==n)==null))
+bioinformaticsSetup()
+themeSeedDefault()

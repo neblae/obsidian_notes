@@ -1,0 +1,232 @@
+/*
+ * pl-dark.css - dark, modern skin for plUi (Notion / Claude Code / Codex feel:
+ * near-black neutral surfaces, hairline borders, soft radii, one calm blue
+ * accent, subtle motion).
+ *
+ * The default theme of a project made from the portable build: make.ps1
+ * packages this file, the launcher copies it to <project>/io/pl-dark.css and
+ * setup.axon's themeSeedDefault() makes the Theme rec that uses it (and
+ * activates it when the project has no active theme). Only that one theme
+ * gets it; a theme made on the Themes page starts without a stylesheet.
+ *
+ * To use it by hand as a Theme's custom stylesheet:
+ *   1. copy this file into the project's io/ directory (io/pl-dark.css)
+ *   2. create a Theme rec whose cssUri is `io/pl-dark.css` and make it the
+ *      active theme (Themes page, or projMetaUpdate({themeRef: @<id>}))
+ *
+ * Why the !important on the tokens below: ThemeApply writes --pl-* and the
+ * domkit vars (--bg, --bg-panel, --text, --accent ...) as INLINE styles on
+ * <body>, computed from the Theme rec - and inline beats any normal
+ * stylesheet rule. An !important declaration in a stylesheet beats a normal
+ * inline one, so this sheet wins even when the Theme rec still holds the
+ * stock light defaults (#ffffff / #1a1a1a / #1e88e5). Colors are
+ * therefore taken from this file, not from the Theme's color fields.
+ *
+ * Everything else only recolors and rounds: sizes, paddings, line-heights
+ * and fonts of .mono / tables are left alone because domkit's Table lays
+ * cells out at fixed pixel sizes.
+ *
+ * To re-skin, edit only the token block.
+ */
+
+html {
+  /* literal on purpose: the tokens live on <body>, this paints the
+   * canvas behind it (overscroll, before first paint) */
+  background: #191919;
+  color-scheme: dark;   /* native checkboxes, radios, scrollbars, selects */
+}
+
+/* -------------------------------------------------------------------- */
+/* Tokens                                                                */
+/* -------------------------------------------------------------------- */
+
+body {
+  /* plUi vocabulary (--pl-*) */
+  --pl-bg: #191919 !important;
+  --pl-bg-contrast: #e8e8e6 !important;
+  --pl-accent-primary: #7ba4ff !important;
+  --pl-accent-secondary: #9b9b98 !important;   /* used as secondary TEXT color */
+
+  /* domkit vocabulary */
+  --bg: #191919 !important;
+  --bg-panel: #1f1f1f !important;
+  --bg-raised: #262626 !important;
+  --bg-hover: #2d2d2d !important;
+  --border: #333333 !important;
+  --text: #e8e8e6 !important;
+  --text-dim: #9b9b98 !important;
+  --text-faint: #6b6b68 !important;
+  --accent: #7ba4ff !important;
+  --accent-dim: #5b83d9 !important;
+  --accent-bg: rgba(123, 164, 255, 0.16) !important;
+  --accent-text: #0d1526 !important;
+  --accent-secondary: #2a3a5c !important;        /* focused/pinned row highlight */
+  --accent-secondary-text: #eef3ff !important;
+
+  /* not overridden by ThemeApply - a Theme's own fontFamily still wins */
+  --pl-font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a { color: var(--accent); }
+a:hover { color: #a3c0ff; }
+
+::selection { background: rgba(123, 164, 255, 0.35); color: var(--text); }
+
+/* thin, rounded scrollbars that only show a hairline thumb */
+::-webkit-scrollbar { width: 12px; height: 12px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.14);
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.26);
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-corner { background: transparent; }
+
+/* -------------------------------------------------------------------- */
+/* Home + Themes pages (pl-* markup)                                     */
+/* -------------------------------------------------------------------- */
+
+.pl-home, .pl-themes { line-height: 1.5; }
+
+.pl-home-section-title {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.pl-home-cards { gap: 12px; }
+
+/* cards: quiet surface + hairline border; the theme accent shows on hover
+ * (the .pl-border-* classes would otherwise paint all four sides in it) */
+.pl-card {
+  border-width: 1px;
+  border-radius: 10px;
+}
+.pl-card.pl-bg { background-color: var(--bg-panel); }
+.pl-card.pl-border-primary,
+.pl-card.pl-border-secondary { border-color: var(--border); }
+
+.pl-card.pl-home-card {
+  color: var(--text);
+  transition: border-color 0.15s, background-color 0.15s, transform 0.15s, box-shadow 0.15s;
+}
+.pl-card.pl-home-card:hover {
+  background-color: var(--bg-raised);
+  border-color: var(--accent-dim);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+.pl-home-card-title { font-size: 15px; font-weight: 600; letter-spacing: -0.01em; }
+.pl-home-card-desc  { color: var(--text-dim); opacity: 1; line-height: 1.45; }
+
+.pl-btn {
+  border-color: var(--border);
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background-color 0.12s, border-color 0.12s, filter 0.12s;
+}
+.pl-btn:hover:not(:disabled) { border-color: var(--text-faint); filter: brightness(1.12); }
+.pl-btn.pl-accent-primary { border-color: transparent; }
+
+/* .pl-accent-secondary is a fill on buttons but secondary TEXT elsewhere
+ * (its token is a mid grey), so as a fill give it a neutral surface */
+.pl-accent-secondary { background-color: var(--bg-raised); color: var(--text); }
+
+.pl-swatch { border-color: rgba(255, 255, 255, 0.18); }
+.pl-themes-form-err { color: #ff7b72; }
+
+/* -------------------------------------------------------------------- */
+/* domkit controls                                                       */
+/* -------------------------------------------------------------------- */
+
+.domkit-control-button {
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background-color 0.12s, border-color 0.12s, box-shadow 0.12s;
+}
+.domkit-control-button:hover { border-color: var(--text-faint); }
+
+/* domkit paints a pressed button #ddd (light) - keep it dark */
+.domkit-control-button.down { background: var(--bg-hover); }
+.domkit-control-button.def-action { border-color: transparent; }
+.domkit-control-button.def-action:hover { background: #93b3ff; }
+.domkit-control-button.def-action.down,
+.domkit-control-button.def-action.down:focus { background: var(--accent-dim); }
+.domkit-control-button.def-action:focus { background: var(--accent); }
+
+.domkit-control-text,
+input.domkit-TextField,
+textarea.domkit-TextArea,
+textarea {
+  border-radius: 6px;
+  transition: border-color 0.12s, box-shadow 0.12s;
+}
+.domkit-control-text:focus,
+input.domkit-TextField:focus,
+textarea.domkit-TextArea:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
+.domkit-control-button:focus { box-shadow: 0 0 0 3px var(--accent-bg); }
+
+input.domkit-Checkbox,
+input.domkit-RadioButton { accent-color: var(--accent); }
+
+/* combo / list dropdown arrows are hardcoded #555 */
+.domkit-control.disclosure:after { border-top-color: var(--text-dim); }
+.domkit-control.disclosure-list:before { border-bottom-color: var(--text-dim); }
+.domkit-control.disclosure-list:after { border-top-color: var(--text-dim); }
+
+div.domkit-WellBox { background: var(--bg-raised); border-radius: 8px; }
+
+/* -------------------------------------------------------------------- */
+/* Overlays: dialogs, popups, menus                                      */
+/* -------------------------------------------------------------------- */
+
+div.domkit-Dialog-frame {
+  border-radius: 12px;
+  border-color: var(--border);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+div.domkit-Dialog-mask { background: rgba(0, 0, 0, 0.6); }
+div.domkit-Dialog-title .def-label { color: var(--text); font-weight: 600; }
+
+div.domkit-Popup {
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+div.domkit-Menu { border-radius: 8px; padding: 4px 0; }
+div.domkit-MenuItem { border-radius: 4px; margin: 0 4px; }
+
+/* -------------------------------------------------------------------- */
+/* Tables and trees                                                      */
+/* -------------------------------------------------------------------- */
+
+/* hairline chrome instead of a grid: quieter column dividers, faint rows */
+div.domkit-Table-header { color: var(--text-dim); border-right-color: rgba(255, 255, 255, 0.05); }
+div.domkit-Table-cell { border-right-color: rgba(255, 255, 255, 0.04); }
+div.domkit-Table-cell.odd  { background: var(--bg-panel); }
+div.domkit-Table-cell.even { background: #1c1c1c; }
+
+div.domkit-Table-thead { background: var(--bg-raised); }
+
+div.domkit-Tree-node-expander { color: var(--text-dim); }
+div.domkit-Tree-node { border-radius: 4px; }
+
+div.domkit-SashBox-div { background: var(--border); }
+div.domkit-SashBox-div:hover { background: var(--accent-dim); }
