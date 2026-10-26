@@ -97,11 +97,11 @@
 		a char doesn't need a cast since &marker already is type char*:
 			output.write(&marker, sizeof(marker));
 		**Type** | **Binary writing**
-		bool - output.write(reinterpret_cast<char*>(&passed), sizeof(passed));
-		short - output.write(reinterpret_cast<char*>(&level), sizeof(level));
-		int - output.write(reinterpret_cast<char*>(&score), sizeof(score));
-		float - output.write(reinterpret_cast<char*>(&temperature), sizeof(temperature));
-		double - output.write(reinterpret_cast<char*>(&accuracy), sizeof(accuracy));
+		_bool_ - output.write(reinterpret_cast<char*>(&passed), sizeof(passed));
+		_short_ - output.write(reinterpret_cast<char*>(&level), sizeof(level));
+		_int_ - output.write(reinterpret_cast<char*>(&score), sizeof(score));
+		_float_ - output.write(reinterpret_cast<char*>(&temperature), sizeof(temperature));
+		_double_ - output.write(reinterpret_cast<char*>(&accuracy), sizeof(accuracy));
 		-
 		**Syntax | Meaning**
 		output.write(...) | writes the specified raw bytes
