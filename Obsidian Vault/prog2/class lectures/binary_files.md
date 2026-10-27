@@ -149,7 +149,6 @@ ______
 		every time read() iterates, it advances the file position:
 			important: check **if (!input)** before using the restored values 
 ______
-
 5. #BinaryFileLayoutandByteOffsets 
 	**what is a byte offset?**
 		a byte offset is a position in the file, starting at 0 (similar to index)
@@ -170,8 +169,7 @@ ______
 			> int scoreOffset = sizeof(marker) + sizeof(level);
 			> sizeof(marker) + sizeof(level) would be the amount of preceding values
 			> accuracyOffset + sizeof(accuracy) would be the total file payload because accuracy is last 
-			
-
+______
 6. #SavingandLoadingArraysandVectors
 	**why save the count?**
 		a binary file has no way to automatically count how many array elements are saved
@@ -181,4 +179,103 @@ ______
 			| 4 B | 4B | 4B | 4 B | 
 			Total: 16 bytes (assuming four-byte int)
 	**writing the array:**
-		 
+		output.write(reinterpret_cast<char*>(&count), sizeof(count)); output.write(reinterpret_cast<char*>(scores), count * sizeof(int)); 
+		*one call*
+	**reading into a dynamic array**
+		first read the count, then allocate that many elements, and then read them:
+		int* loadedScores = new int[loadedCount]; 
+		input.read(reinterpret_cast<char*>(loadedScores), loadedCount * sizeof(int)); delete[] loadedScores;
+	**reading into a vector** 
+		1. read one value at a time and use push_back();
+		2. this:
+			vector<*int*> loadedVector; for (int i = 0; i < vectorCount; i++) { int value = 0; vectorInput.read(reinterpret_cast<char*>(&value), sizeof(value)); loadedVector.push_back(value); }
+			>useful since the vector grows automatically AND manages its own memory
+	**syntax breakdown**
+		|Syntax|Meaning|
+			|`reinterpret_cast<char*>(scores)`|Byte pointer to the first array element; no `&` needed here.|
+			|`count * sizeof(int)`|Bytes occupied by all elements.|
+			|`new int[loadedCount]`|Allocates an array with runtime size.|
+			|`delete[] loadedScores`|Releases the dynamic array.|
+			|`vector<int> loadedVector;`|Creates an empty integer vector.|
+			|`int value = 0;`|Temporary destination for one value.|
+			|`push_back(value)`|Adds that value to the vector.|
+		|Dynamic array|Vector|
+			|Allocate with `new[]`.|Grow using `push_back()`.|
+			|Can read all elements at once.|Read and append each element.|
+			|Must call `delete[]`.|Releases its own memory.|
+______
+7. #SavingandLoadingStrings
+	**how to save a string**
+		string objects manage its own characters internally
+		writing sizeof(name) doesn't save the text properly, since you need to first save the length, and then the characters 
+		example:
+			name.bin 
+			| length: 5 | G | a | t | o | r | 
+			| 4 B |1B |1B |1B |1B |1B | 
+			Total: 9 bytes (assuming a four-byte int and ASCII)
+			__
+			int length = name.size(); 
+			output.write(reinterpret_cast<char*>(&length), sizeof(length)); 
+			// Either of these writes the same length characters: 
+			output.write(name.c_str(), length); 
+			// output.write(name.data(), length);
+	**how to read directly into a string (c++17)**
+		1. non dynamic array
+			// resize creates the destination storage; non-const data() returns a writable char*)
+			int loadedLength = 0; 
+			input.read(reinterpret_cast<char*>(&loadedLength), sizeof(loadedLength)); string loadedName; 
+			loadedName.resize(loadedLength); 
+			input.read(loadedName.data(), loadedLength);
+		2. dynamic character array
+			char* characters = new char[loadedLength + 1]; 
+			input.read(characters, loadedLength); 
+			characters[loadedLength] = '\0'; 
+			string loadedName = characters; 
+			delete[] characters;
+	**c_str() vs data()**
+		|Function|Purpose|Writing|Reading|
+			|---|---|---|---|
+			|`c_str()`|Read-only, null-terminated characters (`const char*`).|Yes|No|
+			|`data()`|Pointer to contiguous characters.|Yes|Yes (non-const string, C++17+)|
+		|Syntax|Meaning|
+			|---|---|
+			|`name.size()`|Number of characters.|
+			|`name.c_str()`|Read-only pointer to null-terminated characters.|
+			|`name.data()`|Pointer to the string’s contiguous characters.|
+			|`loadedName.resize(loadedLength)`|Creates space for the characters.|
+			|`input.read(loadedName.data(), loadedLength)`|Reads directly into that space (C++17+).|
+			|`new char[loadedLength + 1]`|Allocates characters plus a null terminator.|
+			|`characters[loadedLength] = '\0'`|Adds the null terminator.|
+			|`delete[] characters`|Releases the dynamic array.|
+___
+8. #SavingandLoadingClassObjects
+	**serialization**:
+		serialization is important to save an object's important data; 
+			**deserialization** restores it!
+		instead of putting every operation in main(), you can define two member functions:
+			save() - writes members in a defined order
+			load() - reads those members back in the same order 
+				// make sure NOT! to write the entire object with sizeof(GameCharacter), since the resulting string does not contain the nicknames characters
+	**file layout** 
+		|Order|Data|Type|Common size|
+			|1|Level|`int`|4 bytes|
+			|2|Health|`float`|4 bytes|
+			|3|Nickname length|`int`|4 bytes|
+			|4|`"Pixel"`|Characters|5 bytes|
+			||**Total**||**17 bytes**|
+	**member functions for file i/o**
+		void Save(ofstream& file) const 
+			{ // Write members in order. } 
+		void Load(ifstream& file) 
+			{ // Read members back in the same order. }
+	**syntax breakdown**
+		|Syntax|Meaning|
+			|---|---|
+			|`ofstream& file`|Receives the existing output stream by reference.|
+			|`ifstream& file`|Receives the existing input stream by reference.|
+			|`const` after `Save()`|Saving does not modify object members.|
+			|`const char*`|Read-only pointer to bytes for writing.|
+			|`reinterpret_cast<const char*>(&level)`|Byte pointer to a member without writable access through that pointer.|
+			|`original.Save(output)`|Calls the object’s saving member function.|
+			|`restored.Load(input)`|Restores saved data into another object.|
+		// remember save and load are not built in file operations 
