@@ -154,10 +154,9 @@ ___
 			int credits = stoi(token); Course course(code, title, credits); courses.push_back(course);
 _____
 Makefiles:
-	for some reason this was not mentioned in the lectures? unless i'm stupid 
-		- makefiles are text files that tells the "make" program how to build a project:
-			which files depend on which
-			what commands to run to produce each one
+		- makefiles are text files that tells the make tool how to build a project:
+			- which files depend on which
+			- what commands to run to produce each one
 		- instead of typing a long compile by hand, you just have to write the recipe one and run make
 	**basic structure:**
 		rules:
