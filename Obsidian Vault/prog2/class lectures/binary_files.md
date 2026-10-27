@@ -152,4 +152,33 @@ ______
 
 5. #BinaryFileLayoutandByteOffsets 
 	**what is a byte offset?**
-		
+		a byte offset is a position in the file, starting at 0 (similar to index)
+		each write() stores its bytes immediately after the previous value
+			i.e 30, 31, 32, 33, ....,
+	**file layout** 
+		assuming common data type sizes:
+		|Variable|Size|Byte offsets|
+			|---|---|---|
+			|`marker`|1 | 0|
+			|`level`| 2 | 1–2 |
+			|`score`| 4 | 3–6 |
+			|`temperature`| 4 | 7–10 |
+			|`accuracy`| 8 | 11–18 |
+			|**Total** |**19 bytes**| |
+	**calculating an offset** 
+		you can add the sizes of every value written before the target:
+			> int scoreOffset = sizeof(marker) + sizeof(level);
+			> sizeof(marker) + sizeof(level) would be the amount of preceding values
+			> accuracyOffset + sizeof(accuracy) would be the total file payload because accuracy is last 
+			
+
+6. #SavingandLoadingArraysandVectors
+	**why save the count?**
+		a binary file has no way to automatically count how many array elements are saved
+		write the count first, and then the values 
+			scores.bin 
+			| count: 3 | 80 | 90 | 100 | 
+			| 4 B | 4B | 4B | 4 B | 
+			Total: 16 bytes (assuming four-byte int)
+	**writing the array:**
+		 
