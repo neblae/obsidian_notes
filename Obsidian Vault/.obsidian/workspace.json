@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "prog2/class lectures/binary_files.md",
+                "file": "prog2/class lectures/Command Line Arguments & makefile.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "binary_files"
+              "title": "Command Line Arguments & makefile"
             }
           }
         ]
@@ -55,7 +55,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#WritingBinaryFileswithwrite",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -79,8 +79,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -101,7 +100,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "prog2/class lectures/binary_files.md",
+                "file": "prog2/class lectures/Command Line Arguments & makefile.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -120,7 +119,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "prog2/class lectures/binary_files.md",
+                "file": "prog2/class lectures/Command Line Arguments & makefile.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -163,7 +162,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "prog2/class lectures/binary_files.md",
+                "file": "prog2/class lectures/Command Line Arguments & makefile.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -193,10 +192,15 @@
   },
   "active": "e307c8d57c47d567",
   "lastOpenFiles": [
+    "attatchments/Pasted image 20261028185351.png",
+    "attatchments/Pasted image 20261028185008.png",
+    "attatchments",
+    "prog2/class lectures/binary_files.md",
+    "prog2/class lectures/Command Line Arguments & makefile.md",
+    "prog2/class lectures/text_file_IO.md",
     "Pasted image 20261026192133.png",
     "prog2/class lectures",
     "prog2/discussion lectures/File io.md",
-    "prog2/class lectures/binary_files.md",
     "prog2/discussion lectures",
     "Welcome.md",
     "prog2"
