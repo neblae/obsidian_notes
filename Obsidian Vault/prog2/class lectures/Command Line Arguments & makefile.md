@@ -52,4 +52,48 @@ _____
 ____
 4. #CompilingandLInkingcpp
 	1. **compiling a c++ program** 
+		g++ main.cpp, or g++ main.cpp -o program to name it 
+	2. **compiling multiple source files** 
+		if you have the main.cpp, header.h and .cpp file,you only need to compile:
+				g++ main.cpp math_utils.cpp -o program
+			as header files are brought into source files through #include 
+		if you want to compile multiple .cpp files in a directory:
+			g++ (asterisk).cpp -o program
+	3. **understanding compilation and linking** 
+		![[Pasted image 20261028193020.png|312]]
+	4. **compiling without linking (-c)**
+		g++ -c main.cpp produces main.o object files
+	5. **linking object files** 
+		g++ main.o math_utils.o -o program (or just use asterisk to get all .o files in directory)
+___
+	5. #IntroductiontoMakefiles
+		1. **what is a makefile?**
+			plain-text file containing instructions for building a program
+			instead of typing:
+				g++ main.cpp -o program
+			put it in a makefile and run "make"
+		2. **understanding the process**
+			makefile -> make -> g++ main.cpp =o program -> executable 
+		3. **creating a makefile** 
+			![[Pasted image 20261028193434.png|305]]
+		4. **running a makefile**
+			from activity directory:
+				make
+				./program
+_____
+6. #makefileRulesandTargets
+	1. **using multiple rules**
+		makefiles can have different rules(targets) to define it for 
+			all - builds a executable named program 
+			run - runs the executable 
+			clean - removes the executable 
+		- looks like:
+			target:
+				command
+	2. **running different rules**
+		make ()selects the first target (all)
+		make (run) runs ./program
+		make (clean) removes the executable 
+			important to run make before make run, since you need the .exe to exist 
+	3. **understanding (make clean)**
 		
