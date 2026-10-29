@@ -94,7 +94,7 @@ _____
 		make ()selects the first target (all)
 		make (run) runs ./program
 		make (clean) removes the executable 
-			important to run make before make run, since you need the .exe to exist 
+			important to run make before make run, since you need the .exe to exist ???????
 	3. **understanding (make clean)**
 			clean:
 				rm -f program 
