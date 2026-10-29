@@ -20,8 +20,15 @@
 		- stack<string> moreRecentFirst;
 			- moreRecentFirst.push(); -> pushes argument onto stack
 		- while (!arrivalOrder.empty()) {
-			  cout << arrivalOrder.front() << endl;
+			  cout << arrivalOrder.front() << endl; 
+			  arrivalOrder.pop();
 			  }
+		- while (!mostRecentFirst.empty() {
+			cout << mostRecentFirst.top() << endl;
+			mostRecentFirst.pop(); 
+			}
+____
+
 
 
 
