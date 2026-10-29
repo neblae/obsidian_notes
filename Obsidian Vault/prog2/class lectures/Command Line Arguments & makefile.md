@@ -96,4 +96,29 @@ _____
 		make (clean) removes the executable 
 			important to run make before make run, since you need the .exe to exist 
 	3. **understanding (make clean)**
-		
+			clean:
+				rm -f program 
+		clean - target named clean
+		rm - removes a file 
+		-f - doesn't report any errors if the file is missing 
+		program - the executable file to remove, not the source code 
+___
+7. #MakeProgramsandBuildTools
+	1. **Makefile vs Make Program** 
+		- makefiles are text files containing build instructions, while make programs are a program that reads and executes instructions
+		- makefiles define rules and commands, while make programs processes requested rules 
+	2. **different make programs**
+		![[Pasted image 20261028194829.png|356]]
+		3. **what is CMake?** 
+			cmake is a build-system generator used to manage projects
+			CMake config -> generated build files -> build tool -> C++ compiler -> exe
+		4. **why build tools?** 
+			while a small program might only need a simple g++ main.cpp -o program compilation, larger projects have a lot more files to put together 
+____
+8. #CLIargumentsandMakefiles
+	1. **putting the concepts together:**
+		main.cpp + makefile completes the make program -> compiles program -> input the argument (./program Alex 85) -> argc=3; argv[1]="Alex"; argv[2]="85" ->stoi("85") turns into an int 85 -> displays result
+	2. **processing arguments**
+		validate the count (if argc != 3) and then turn the number string into int
+	3. **building and running with a makefile**
+		using make all, run, or clean, run arguments 
