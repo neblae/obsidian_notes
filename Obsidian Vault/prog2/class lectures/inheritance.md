@@ -12,6 +12,4 @@
 	3. **Inheritance Syntax and IS-A**
 	   
 		class Hero : public Character {
-		}
-
-
+		} 

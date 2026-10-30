@@ -27,7 +27,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "inheritance.md",
+                "file": "prog2/class lectures/inheritance.md",
                 "mode": "source",
                 "source": false
               },
@@ -115,7 +115,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "inheritance.md",
+                "file": "prog2/class lectures/inheritance.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -134,7 +134,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "inheritance.md",
+                "file": "prog2/class lectures/inheritance.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -177,7 +177,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "inheritance.md",
+                "file": "prog2/class lectures/inheritance.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -208,7 +208,7 @@
   "active": "33f917f3e2c0bd63",
   "lastOpenFiles": [
     "prog2/class lectures/binary_files.md",
-    "inheritance.md",
+    "prog2/class lectures/inheritance.md",
     "prog2/class lectures/data structures.md",
     "prog2/class lectures/Command Line Arguments & makefile.md",
     "attatchments/Pasted image 20261028194829.png",
