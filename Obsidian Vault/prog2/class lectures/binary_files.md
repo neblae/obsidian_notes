@@ -179,7 +179,8 @@ ______
 			| 4 B | 4B | 4B | 4 B | 
 			Total: 16 bytes (assuming four-byte int)
 	**writing the array:**
-		output.write(reinterpret_cast<char*>(&count), sizeof(count)); output.write(reinterpret_cast<char*>(scores), count * sizeof(int)); 
+	
+		output.write(reinterpret_cast<char*>(&count),sizeof(count));                              output.write(reinterpret_cast<char*>(scores), count * sizeof(int)); 
 		*one call*
 	**reading into a dynamic array**
 		first read the count, then allocate that many elements, and then read them:
