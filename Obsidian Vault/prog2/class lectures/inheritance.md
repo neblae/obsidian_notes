@@ -60,3 +60,8 @@ ___
 		player.UseWeapon(); -> this is accessed through the [Hero] function 
 ___
 6. #PrivateandProtected 
+	1. **Three Different Types of Inheritance Rules**
+		![[Pasted image 20261030211909.png|373]]
+		- protected becomes a good mix of both member types
+	2. **Private Inheritance** 
+		![[Pasted image 20261030212021.png]]
