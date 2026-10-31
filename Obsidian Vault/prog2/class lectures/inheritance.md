@@ -65,3 +65,6 @@ ___
 		- protected becomes a good mix of both member types
 	2. **Private Inheritance** 
 		![[Pasted image 20261030212021.png]]
+		- this means you can't print out Hero.PrintHealth(); yourself, you can only use Hero.ShowStatus(); Character.PrintHealth(); however does work 
+	3. **Protected Inheritance** 
+		![[Pasted image 20261030212856.png]]
