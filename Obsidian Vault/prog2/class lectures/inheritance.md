@@ -68,3 +68,4 @@ ___
 		- this means you can't print out Hero.PrintHealth(); yourself, you can only use Hero.ShowStatus(); Character.PrintHealth(); however does work 
 	3. **Protected Inheritance** 
 		![[Pasted image 20261030212856.png]]
+		- Enemy (a different derived class) is a **protected** class of parent Character,
