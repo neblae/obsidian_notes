@@ -68,4 +68,13 @@ ___
 		- this means you can't print out Hero.PrintHealth(); yourself, you can only use Hero.ShowStatus(); Character.PrintHealth(); however does work 
 	3. **Protected Inheritance** 
 		![[Pasted image 20261030212856.png]]
-		- Enemy (a different derived class) is a **protected** class of parent Character,
+		- Enemy (a different derived class) is a **protected** class of parent Character; it can call PrintHealth() on itself, but classes derived from Enemy **cannot** (like monster)
+____
+7. #Constructors/Inheritance 
+	1. **A Derived Object has a Base Part**
+	   a **base part** is the information a derived class (Hero) got from its parent class (Character)
+		- you must execute the base-class constructor (Character) [before] the derived class (Hero)
+			- Character constructor -> Hero constructor 
+	2. **Constructor Initializer lists**
+	   ![[Pasted image 20261030215245.png|456]]
+			
