@@ -77,4 +77,39 @@ ____
 			- Character constructor -> Hero constructor 
 	2. **Constructor Initializer lists**
 	   ![[Pasted image 20261030215245.png|456]]
-			
+			int g is unique to the hero
+	3. **Why do we need it?**
+		Character(string n, int h) needs arguments to exist, and has no default constructor. 
+		- compiler will try to use a nonexistent Character() 
+		- if the base class has its own default constructor, **you do not need to add it**
+	4. **Initializer Lists for Members**
+		similar to the character initializer, you can initialize the parents members in the declaration of the derived class
+		![[Pasted image 20261030234041.png|466]]
+___
+8. #MultpleInheritance/theDiamondProblem
+	1. **Multiple Inheritance:**
+		- a class can inherit information from different bases/parents 
+			 class FlyingCar : public Car, public Airplane {};
+		- the FlyingCar has driving functionality of both [Car] and [Airplane]
+	2. **The Diamond Problem: Why is it Ambiguous?**
+		- if you remove [virtual]
+			class Car : public Vehicle {}; 
+			class Airplane : public Vehicle {}; 
+			FlyingCar : public Car, public Airplane {};
+		![[Pasted image 20261030234911.png|413]]
+		- FlyingCar inherits [Vehicle] twice, since [Car] and [Airplane] are Vehicles
+		**The compiler doesn't know which vehicle path to use!**
+	3. **How to fix this?**
+		class Car : [virtual] Vehicle {}; 
+		class Airplane : [virtual] public Vehicle {}; 
+		FlyingCar : public Car, [virtual] Airplane {};
+		- both intermediate clsses share only one vehicle bae 
+	4. **Private and Protected Attributes**
+		![[Pasted image 20261030235149.png|402]]
+	5. **Parameterized Constructors and Order** 
+		what do you do when you have multiple inherited classes, and they all have multiple **unique variables** that need to be input?
+		- in what order do you input the arguments?
+		FlyingCar(string n, int count, int wheels, int wings) 
+		: Vehicle(n, count), Car(n, count, wheels), Airplane(n, count, wings) { 
+			}
+		- now, you input arguments from vehicle -> car -> airplane -> flyingcar 

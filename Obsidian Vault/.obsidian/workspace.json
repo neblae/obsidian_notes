@@ -13,30 +13,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "prog2/class lectures/binary_files.md",
+                "file": "prog2/class lectures/text_file_IO.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "binary_files"
-            }
-          },
-          {
-            "id": "33f917f3e2c0bd63",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "prog2/class lectures/inheritance.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "inheritance"
+              "title": "text_file_IO"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -115,7 +100,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "prog2/class lectures/inheritance.md",
+                "file": "prog2/class lectures/text_file_IO.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -134,7 +119,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "prog2/class lectures/inheritance.md",
+                "file": "prog2/class lectures/text_file_IO.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -177,7 +162,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "prog2/class lectures/inheritance.md",
+                "file": "prog2/class lectures/text_file_IO.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -205,8 +190,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "33f917f3e2c0bd63",
+  "active": "e307c8d57c47d567",
   "lastOpenFiles": [
+    "prog2/class lectures/binary_files.md",
+    "prog2/class lectures/inheritance.md",
+    "attatchments/Pasted image 20261030235149.png",
+    "attatchments/Pasted image 20261030234911.png",
+    "attatchments/Pasted image 20261030234041.png",
     "attatchments/Pasted image 20261030215245.png",
     "attatchments/Pasted image 20261030212856.png",
     "attatchments/Pasted image 20261030212021.png",
@@ -214,14 +204,8 @@
     "attatchments/Pasted image 20261030122507.png",
     "attatchments/Pasted image 20261030122044.png",
     "attatchments/Pasted image 20261030121832.png",
-    "attatchments/Pasted image 20261030121249.png",
-    "prog2/class lectures/binary_files.md",
-    "prog2/class lectures/inheritance.md",
     "prog2/class lectures/data structures.md",
     "prog2/class lectures/Command Line Arguments & makefile.md",
-    "attatchments/Pasted image 20261028194829.png",
-    "attatchments/Pasted image 20261028193434.png",
-    "attatchments/Pasted image 20261028193020.png",
     "attatchments",
     "prog2/class lectures/text_file_IO.md",
     "prog2/class lectures",
