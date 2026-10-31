@@ -1,8 +1,8 @@
 1. #FileStreamsandOpeningFiles
 	**From Binary Files to Text Files:**
-		**similar to bin IO:** same fstream header, stream classes, and open -> check -> use -> close process
-		**difference to bin IO:** data is transferred using << >> and getline() for formatted characters, instead of working with raw bytes 
-	**The fstream header: **
+		**similar to binary IO:** same fstream header, stream classes, and open -> check -> use -> close process
+		**difference to binary IO:** data is transferred using <<, >> and getline() for formatted characters, instead of working with raw bytes 
+	**The fstream header: 
 		provides the same three file-stream classes:
 			ofstream - write to a file
 			ifstream - read a file 
