@@ -120,4 +120,7 @@ ___
 	7. **What is an abstract base class?**
 		- a class that is meant to **only be inherited from** 
 		- you can't create objects of an abstract base class directly 
-		- 
+	- ![[Pasted image 20261103121653.png|460]]
+
+
+![[Pasted image 20261103121407.png]]
