@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "prog2/class lectures/text_file_IO.md",
+                "file": "prog2/class lectures/inheritance.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "text_file_IO"
+              "title": "inheritance"
             }
           }
         ]
@@ -192,6 +192,7 @@
   },
   "active": "e307c8d57c47d567",
   "lastOpenFiles": [
+    "prog2/class lectures/text_file_IO.md",
     "prog2/class lectures/binary_files.md",
     "prog2/class lectures/inheritance.md",
     "attatchments/Pasted image 20261030235149.png",
@@ -207,7 +208,6 @@
     "prog2/class lectures/data structures.md",
     "prog2/class lectures/Command Line Arguments & makefile.md",
     "attatchments",
-    "prog2/class lectures/text_file_IO.md",
     "prog2/class lectures",
     "prog2/discussion lectures/File io.md",
     "prog2/discussion lectures",

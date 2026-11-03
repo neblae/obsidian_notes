@@ -103,7 +103,7 @@ ___
 		class Car : [virtual] Vehicle {}; 
 		class Airplane : [virtual] public Vehicle {}; 
 		FlyingCar : public Car, [virtual] Airplane {};
-		- both intermediate clsses share only one vehicle bae 
+		- both intermediate classes share only one vehicle bae 
 	4. **Private and Protected Attributes**
 		![[Pasted image 20261030235149.png|402]]
 	5. **Parameterized Constructors and Order** 
@@ -113,3 +113,11 @@ ___
 		: Vehicle(n, count), Car(n, count, wheels), Airplane(n, count, wings) { 
 			}
 		- now, you input arguments from vehicle -> car -> airplane -> flyingcar 
+	6. **What is a virtual function?**
+	   a [virtual] function is a member function from a base class that was declared using the virtual keyword 
+		- virtual functions can be over-riden in derived classes in order to achieve [runtime polymorphism]
+			- **runtime polymorphism:** the functions executed may not know what object it will be called on, so it will determine what the specific method it implements is **during program execution** instead
+	7. **What is an abstract base class?**
+		- a class that is meant to **only be inherited from** 
+		- you can't create objects of an abstract base class directly 
+		- 
