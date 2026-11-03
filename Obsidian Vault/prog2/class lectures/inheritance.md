@@ -110,8 +110,7 @@ ___
 		what do you do when you have multiple inherited classes, and they all have multiple **unique variables** that need to be input?
 		- in what order do you input the arguments?
 		FlyingCar(string n, int count, int wheels, int wings) 
-		: Vehicle(n, count), Car(n, count, wheels), Airplane(n, count, wings) { 
-			}
+		: Vehicle(n, count), Car(n, count, wheels), Airplane(n, count, wings) {}
 		- now, you input arguments from vehicle -> car -> airplane -> flyingcar 
 	6. **What is a virtual function?**
 	   a [virtual] function is a member function from a base class that was declared using the virtual keyword 
