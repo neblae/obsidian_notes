@@ -78,4 +78,40 @@ ___
 6. #VirtualDestructors/DestructionOrder
 	1. **Why Virtual Destructors Matter** 
 		[Character* hero = new Wizard;] makes a derived object, storing its address in a **base class pointer**; thus, [delete hero] must destroy the **entire wizard allocation** 
-		- if a  ****
+		- if a class is deleted through its **base pointer** , and the base pointer **is non-virtual,** then the behavior is *undefined* 
+	2. **Correct Construction and Destruction Order** 
+		you must run destructors of *derived* classes **before** destroying the *base* class 
+	3. **Making the Base Destructor Virtual**
+		[virtual ~Character() { }]
+		- making the base destructor virtual means **every derived class is also virtual** 
+____
+7. #AbstractBaseClasses/PureVirtualFunctions
+	1. **What is an Abstract Base Class** 
+		*abstract base class (ABC)* - a class designed solely to be inherited by others
+		- can't be **instantiated on its own** 
+		- a class is abstract if it has **at least one pure virtual function** 
+	2. **Pure Virtual Functions** 
+		what makes a function **pure virtual?** 
+		- [virtual void Introduce() = 0;] 
+		the [ = 0] makes a function pure virtual; **any concrete derived class has to implement it** 
+	3. **Shared and Required Behavior**
+		![[Pasted image 20261104131843.png|396]]
+		- whereas [PrintName()] has a body and is inherited as it, [Introduce()] **needs to be implemented** for each derived class 
+		- ![[Pasted image 20261104132037.png|364]]
+______
+8. #AbstractClassesinPractice/PureVirtualDestructors
+	1. **One interface for Different Button Shapes**
+		imagine you have an abstract [UIButton] class, where you can have different looking UIButtons that carry the same function;
+		- both derived classes must answer: **was this button clicked?** if so, they both deal with it differently
+	2. **Rectangle: Check X and Y Boundaries** 
+		![[Pasted image 20261104132353.png|433]]
+	3. **Circle: Check Distance from Center** 
+		use [distance = sqrt(pow(clickX - xPos, 2) + pow(clickY - yPos, 2))] to calculate if the **distance is <= radius**
+	4. **Pure Virtual Destructor: The Exception** 
+		imagine your *ABC* declares **two pure virtual functions**: 
+		- [virtual bool WasClicked(int clickX, int ClickY) = 0;]
+		- [virtual ~UIButton() = 0;]
+		unlike the normal pure virtual function, the *pure virtual destructor* has to **have its own definition**, since it **always runs when derived objects are destroyed** 
+		- [UIButton::~UIButton() { cout << "UIButton cleaned up.\n"; }]
+		the *pure virtual destructor* stays **virtual**, and makes the base class **abstract** 
+		- remember that derived destructors will run before the UIButton destructor 
