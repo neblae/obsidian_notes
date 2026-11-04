@@ -42,6 +42,40 @@ ____
 	3. **Using One Loop for Every Vehicle**
 		if [Drive()] is an **inherited function among all derived classes**, then using [allOurCars[i]->Drive()] calls the inherited function
 		- all projects will print the **same message** since Drive() isn't virtual nor specialized 
+		- [allOurCars.push_back(new Car);]
+		- [allOurCars[i]->Drive();]
 	4. **Cleaning Up Dynamic Objects** 
 		- each [new] must have a matching [delete]
 		- making the [~Car()] destructor **virtual** allows you delete all derived objects through Car*
+_____
+3. #VirtualvsNonVirtual_Functions/Overriding
+	1. **Same Function, Different Calculation**
+		[Car::GetValue()] returns a **mileage** based value, while [Pickup::GetValue()] adds the **bed and towing values** 
+		- both are accessed through [Car*]
+	2. **Virtual vs Non-Virtual**
+		![[Pasted image 20261103212823.png|373]]
+	3. **override Helps Catch Mistakes**
+		[override] makes sure that the function actually **changes the virtual base function** 
+	4. **One Loop for Many Types**
+		![[Pasted image 20261103213237.png|370]]
+___
+5. #OverridingVirtualFunctions
+	1. **One Call, Three Results**
+		you can have different derived classes can use a **base function** in its own way
+		- ie. [TakeDamage(25)] function will work differently between a [Character], a [Knight], and a [Wizard]
+	2. **Base-Class Implementation**
+		when you have a function that changes the **private member variables** of the *base* class, you must **reuse the implementation in derived classes instead of accessing it directly** 
+		- ie. [Character::TakeDamage()] subtracts from [hitpoints], which is a private variable
+	3. **Specialized Behavior**
+		- [ArmoredKnight] subtracts [armor] from incoming damage, clamps to zero
+		- [Wizard] uses one-use barrier to set the first incoming damage to zero
+			Each then calls [Character::TakeDamage(amount)]
+	4. **Explicitly Call the Base Version of the Function** 
+		notice how I have been using the **scope resolution operator ::** to call TakeDamage():
+			this is because calling [TakeDamage(amount)] from inside the override would call itself recursively
+			![[Pasted image 20261103215508.png|447]]
+___
+6. #VirtualDestructors/DestructionOrder
+	1. **Why Virtual Destructors Matter** 
+		[Character* hero = new Wizard;] makes a derived object, storing its address in a **base class pointer**; thus, [delete hero] must destroy the **entire wizard allocation** 
+		- if a  ****
