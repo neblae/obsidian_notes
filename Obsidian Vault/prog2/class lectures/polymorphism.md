@@ -30,4 +30,18 @@ ____
 		*downcasting:* a base class pointing to a **derived** class [Student* s = &Person]
 		- downcasting can be risky; think about a square and a rectangle:
 			a **square** can be a **rectangle**, but a rectangle **cannot be a square** 
-		- in the same way, sometimes downcasting cannot logically/automaticcaly work
+		- in the same way, sometimes downcasting cannot logically/automatically work
+____
+3. #Base-ClassPointers/DynamicMemory/Vectors
+	1. **Why use just one vector for a family of classes?**
+		whereas you could separate [vector[limousine]], [vector[SUV]] for different derivatives objects of a base class, you can instead just store **all class pointers to one vector:** [vector{Car*}]
+		![[Pasted image 20261103205929.png|325]]
+		- this is especially important, since doing so allows you to **loop through only one vector to access all objects**
+	2. **Dynamic Allocation and Upcasting**
+		- [new Limousine] allocates a derived object and returns its pointer; push_back stores the pointer as [Car*] **through automatic upcasting** 
+	3. **Using One Loop for Every Vehicle**
+		if [Drive()] is an **inherited function among all derived classes**, then using [allOurCars[i]->Drive()] calls the inherited function
+		- all projects will print the **same message** since Drive() isn't virtual nor specialized 
+	4. **Cleaning Up Dynamic Objects** 
+		- each [new] must have a matching [delete]
+		- making the [~Car()] destructor **virtual** allows you delete all derived objects through Car*
