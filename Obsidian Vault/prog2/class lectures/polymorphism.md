@@ -14,13 +14,13 @@
 ____
 2. #Base-ClassPointers/Upcasting/ObjectSliceing 
 	1. **Upcasting: From Derived to Base**
-		- a base-class pointer can point to its own type or any **publicly derived type**
-		- if you have Person->Student->GradStudent:
+		- a *base-class pointer* can point to its **own type** or any **publicly derived type**
+		- if you have Person(base)->Student->GradStudent:
 			|Pointer type|Person object|Student object|GradStudent object|
 				|---|---|---|---|
 				|`Person*`|Yes|Yes|Yes|
 				|`Student*`|No|Yes|Yes|
 				|`GradStudent*`|No|No|Yes|
-		- [Person* p = &student;] is called **automatic upcasting** - the person pointer can access members defined in the base Person class (but can't access members from Student)
+		- [Person* p = &student;] is called **automatic upcasting** - pointing to the base class gives you access to all members, including its derived class members
 	2. **Upcasting Pointers vs Copying Objects**
 		
