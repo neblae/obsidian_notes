@@ -83,8 +83,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "ebcace70eb92d21c",
@@ -192,6 +191,7 @@
   },
   "active": "e307c8d57c47d567",
   "lastOpenFiles": [
+    "prog2/class lectures/polymorphism.md",
     "attatchments/Pasted image 20261103121653.png",
     "attatchments/Pasted image 20261103121407.png",
     "prog2/class lectures/text_file_IO.md",
@@ -205,7 +205,6 @@
     "attatchments/Pasted image 20261030212021.png",
     "attatchments/Pasted image 20261030211909.png",
     "attatchments/Pasted image 20261030122507.png",
-    "attatchments/Pasted image 20261030122044.png",
     "prog2/class lectures/data structures.md",
     "prog2/class lectures/Command Line Arguments & makefile.md",
     "attatchments",
