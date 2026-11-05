@@ -103,11 +103,11 @@ ______
 	1. **One interface for Different Button Shapes**
 		imagine you have an abstract [UIButton] class, where you can have different looking UIButtons that carry the same function;
 		- both derived classes must answer: **was this button clicked?** if so, they both deal with it differently
-	2. **Rectangle: Check X and Y Boundaries** 
-		![[Pasted image 20261104132353.png|433]]
-	3. **Circle: Check Distance from Center** 
-		use [distance = sqrt(pow(clickX - xPos, 2) + pow(clickY - yPos, 2))] to calculate if the **distance is <= radius**
-	4. **Pure Virtual Destructor: The Exception** 
+		1. **Rectangle: Check X and Y Boundaries** 
+			![[Pasted image 20261104132353.png|433]]
+		2. **Circle: Check Distance from Center** 
+			use [distance = sqrt(pow(clickX - xPos, 2) + pow(clickY - yPos, 2))] to calculate if the **distance is <= radius**
+	2. **Pure Virtual Destructor: The Exception** 
 		imagine your *ABC* declares **two pure virtual functions**: 
 		- [virtual bool WasClicked(int clickX, int ClickY) = 0;]
 		- [virtual ~UIButton() = 0;]
