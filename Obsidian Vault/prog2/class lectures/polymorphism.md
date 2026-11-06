@@ -18,8 +18,8 @@ ____
 		- if you have Person(base)->Student->GradStudent:
 			|Pointer type|Person object|Student object|GradStudent object|
 				|---|---|---|---|
-				|`Person*`|Yes|Yes|Yes|
-				|`Student*`|No|Yes|Yes|
+				|`Person*`|   Yes|Yes|Yes|
+				|`Student*`|  No|Yes|Yes|
 				|`GradStudent*`|No|No|Yes|
 		- [Person* p = &student;] is called **automatic upcasting** - pointing to the base class gives you access to all members, including its derived class members
 	2. **Why Upcast Pointers and not just Copy Objects?**

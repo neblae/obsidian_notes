@@ -49,8 +49,7 @@
               "title": "Untitled"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -219,15 +218,15 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "83378e03553763bb",
+  "active": "e307c8d57c47d567",
   "lastOpenFiles": [
+    "prog2/class lectures/inheritance.md",
+    "prog2/class lectures/polymorphism.md",
+    "Untitled.md",
     "attatchments/Pasted image 20261105174448.png",
     "attatchments/Pasted image 20261105174428.png",
     "attatchments/Pasted image 20261105174139.png",
     "attatchments/Pasted image 20261105174117.png",
-    "Untitled.md",
-    "prog2/class lectures/inheritance.md",
-    "prog2/class lectures/polymorphism.md",
     "prog2/questions from past exams.md",
     "prog2/class lectures/text_file_IO.md",
     "prog2/class lectures/Command Line Arguments & makefile.md",
@@ -239,7 +238,6 @@
     "attatchments/Pasted image 20261103215508.png",
     "attatchments/Pasted image 20261103213237.png",
     "attatchments/Pasted image 20261103212823.png",
-    "attatchments/Pasted image 20261103205929.png",
     "attatchments",
     "prog2/class lectures",
     "prog2/discussion lectures/File io.md",
