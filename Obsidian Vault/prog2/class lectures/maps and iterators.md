@@ -34,4 +34,14 @@ ___
 			2. if the inserted *key* already exists: 
 				the [emplace()] call is completely **ignored** - it doesn't overwrite the old value or produce an error
 	2. **Insert or Update with []**
-		
+		same concept, maps can't have duplicates so:
+		two cases:
+		1. if the *key* doesn't exist:
+			[] **inserts** the pair 
+		2. if the *key* exists:
+			[] **updates** the pair with a new *value* 
+	3. **modify with at()**
+		[at()] returns a reference to an **existing** *value* 
+		- how is it different from just using []? [at()] throws an **out of range for a missing key** 
+	4. **Comparison** 
+		![[Pasted image 20261107151131.png]]
