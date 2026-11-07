@@ -45,3 +45,28 @@ ___
 		- how is it different from just using []? [at()] throws an **out of range for a missing key** 
 	4. **Comparison** 
 		![[Pasted image 20261107151131.png]]
+____
+3. #AccessingMapElementsbyKey
+	1. **Important: Keys are NOT Positions**
+		in a *vector*, [numbers[0]] refers the **first** element (index), whereas in a *map*, [heroes[22]] refers to the *key* [22], not element **number** 22.
+	2. **Missing Keys with []** 
+		[cout << heroes[0] << endl;]
+		- if key [0] doesn't exist, the map will make a **new pair**; this **pair** will be initiated with an **empty string value**, increasing the size of the map
+	3. **Missing Keys with at()** 
+		[cout << heroes.at(100) << endl;] 
+		- if key [100] doesn't exist, [at()] throws an **out_of_range** exception, without adding a new pair 
+	4. **Negative Integer Keys**
+		[heroes[-28] = "Mystery Hero";]
+		- this is fine since its a *key* and not an *index* 
+	5. **Why [size() - 1] isn't the Last Key**
+		[heroes[heroes.size() - 1];]
+			map size is the **number of pairs** (as opposed to an index in a vector), so this wouldn't give the last key; maps are **non-contiguous** 
+___
+4. #IntroductiontoIteratorsAcrossContainers
+	1. **Why Iterators?**
+		- index loops don't work for maps, so *iterators* are used to visit elements **without knowing their indices or keys** 
+	2. **An Iterator Is Similar to a Pointer in a vector**
+		![[Pasted image 20261107165659.png|412]]
+	3. **Declaring an Iterator** 
+		each *iterator* has its own **name**:
+			numberIter, wordIter, mapIter, ageIter, etc. 
