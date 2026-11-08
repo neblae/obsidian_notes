@@ -75,4 +75,7 @@ ___
 		![[Pasted image 20261107190823.png|446]]
 	4. **Same General Loop, Different Element Access** 
 		[ for (iter = container.begin(); iter != container.end(); ++iter)] 
-			// work with current element 
+			// code to work on the element 
+		![[Pasted image 20261107191956.png|460]]
+	5. **Difference Between Containers**
+		
