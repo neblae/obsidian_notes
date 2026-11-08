@@ -82,4 +82,4 @@ ___
 		- [10] [20] [30] 
 	- **maps:** sorted by key 
 		- [Alex] -> 85, [Jordan] -> 90 
-	- **useful functions:** all three support [begin()], [end()]
+	- **useful functions:** all three support [begin()], [end()], [++iter], and dereferencing
