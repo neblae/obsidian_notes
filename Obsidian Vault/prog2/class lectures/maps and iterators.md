@@ -70,3 +70,9 @@ ___
 	3. **Declaring an Iterator** 
 		each *iterator* has its own **name**:
 			numberIter, wordIter, mapIter, ageIter, etc. 
+		each *iterator* will be defined by its *type* (ContainerType) that tells the iterator what it will be storing 
+		[ContainerType::iterator variableName;]
+		![[Pasted image 20261107190823.png|446]]
+	4. **Same General Loop, Different Element Access** 
+		[ for (iter = container.begin(); iter != container.end(); ++iter)] 
+			// work with current element 
