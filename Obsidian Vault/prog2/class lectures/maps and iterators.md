@@ -78,4 +78,7 @@ ___
 			// code to work on the element 
 		![[Pasted image 20261107191956.png|460]]
 	5. **Difference Between Containers**
-		
+	- **vectors**: position based
+		- [10] [20] [30] 
+	- **maps:** sorted by key 
+		- [Alex] -> 85, [Jordan] -> 90 
