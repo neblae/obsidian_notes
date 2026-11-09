@@ -111,3 +111,12 @@ ____
 		[cout << * iter << endl;] -> [cout << * iter + 3 << endl;] 
 		- if * iter returns the value [5], then the **expressions will print 5 and 8** 
 	3. **Modifying Values** 
+		- dereferencing a modifiable vector iterator ( * iter) will return a **reference to its element**
+	4. **Important Difference: [++iter] vs. [( * iter)++]** 
+		[++iter] -> will move the iterator to next element 
+		[(* iter)++] -> increments the current integer element 
+	5. **Iterators to Class Objects** 
+		- If you have a container with [Hero] objects, to access the name at the element of the *iterator* : 
+			[(* iter).GetName();]
+			[iter->GetName();]
+			both do the same thing; -> is just easier to use 
