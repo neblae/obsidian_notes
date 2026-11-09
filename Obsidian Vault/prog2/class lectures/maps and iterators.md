@@ -90,7 +90,7 @@ ___
 		- [end()] is an **iterator** located **one past the last element** 
 			- **never deference [end()]** 
 	2. **Standard Iterator Loop**
-		[for (iter = numbers.begin(); iter != numberss.end(); ++iter) {
+		[for (iter = numbers.begin(); iter != numbers.end(); ++iter) {
 			[cout << * iter << endl;]
 		- * iter reads the current element being incremented 
 	3. **Move Forward and Back** 
