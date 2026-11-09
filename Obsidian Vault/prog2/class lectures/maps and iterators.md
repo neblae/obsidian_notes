@@ -145,9 +145,30 @@ ___
 		- if you **don't want the map to be modified,** use [find()] 
 	2. [find()] **returns an iterator** 
 		[studentScores.find("Taylor")] returns an iterator to the matching pair (if the key exists) 
+		- if [find()] cannot return an answer, **it will return end()** 
 	3. **Test for an Existing Key** 
 	![[Pasted image 20261108232854.png]]
+	- if studentScores.find(name) can't find the name, it will return end() -
 	4. **Test for a Missing Key** 
 	![[Pasted image 20261108232916.png]]
 	5. **Retrieve a Found Pair Through Its Iterator** 
 	![[Pasted image 20261108233311.png]]
+	6. **Comparison** 
+		![[Pasted image 20261108234705.png]]
+___
+9. #OrderedvsUnorderedMaps
+	1. **Ordered Maps Sort by Key**
+		assume [map<string, int> orderedHeroes;]
+		- for a standard *map*, when iterating, the **iterators move through keys in ascending order**, regardless of insertion order 
+		- ![[Pasted image 20261108235637.png]]
+	2. **Unordered Maps Don't Guarantee an Order** 
+		assume [unordered_map<string, int> unorderedHeroes;] 
+		- doesn't change the iteration like it did in step 1 
+	3. **Comparison** 
+		![[Pasted image 20261108235826.png|514]]
+	4. **When to Choose Which Container** 
+		![[Pasted image 20261108235925.png|516]]
+	5. **Iterator Differences** 
+		- both maps support ++iter, iter->first, and iter->second
+		- *map* iterators supports --iter, *unordered_map* iterators don't 
+			- neither supports iter + 2 only vectors 
