@@ -83,3 +83,31 @@ ___
 	- **maps:** sorted by key 
 		- [Alex] -> 85, [Jordan] -> 90 
 	- **useful functions:** all three support [begin()], [end()], [++iter], and dereferencing
+___
+5. #IteratorTraversalandOperators
+	1. **begin() and end()** 
+		- [begin()] points to the **first** element
+		- [end()] is an **iterator** located **one past the last element** 
+			- **never deference [end()]** 
+	2. **Standard Iterator Loop**
+		[for (iter = numbers.begin(); iter != numberss.end(); ++iter) {
+			[cout << * iter << endl;]
+		- * iter reads the current element being incremented 
+	3. **Move Forward and Back** 
+		![[Pasted image 20261108163134.png|431]]
+	4. **Vector Iterator Arithmetic** 
+		![[Pasted image 20261108163157.png|452]]
+	5. **Last Element of a Vector** 
+		since [end()] is an iterator after the last element, you need a better way to acces the **true last element** 
+			[* (numbers.end() - 1)]
+			if you have a **nonempty vector**, you can use this to access the final element 
+	6. **Operators don't work the same for every container:** 
+	![[Pasted image 20261108163427.png|501]]
+____
+6. #AccessingandModifyingElementswithIterators 
+	1. **Dereferencing an Iterator** 
+		[* iter] -> the * operator actually **accesses the element at the current iterator position** 
+	2. **Reading Values** 
+		[cout << * iter << endl;] -> [cout << * iter + 3 << endl;] 
+		- if * iter returns the value [5], then the **expressions will print 5 and 8** 
+	3. **Modifying Values** 
