@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "prog2/class lectures/maps and iterators.md",
+                "file": "prog2/discussion lectures/week12.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "maps and iterators"
+              "title": "week12"
             }
           }
         ],
@@ -98,8 +98,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "ebcace70eb92d21c",
@@ -207,6 +206,8 @@
   },
   "active": "80f8626bccae5420",
   "lastOpenFiles": [
+    "prog2/class lectures/maps and iterators.md",
+    "prog2/discussion lectures/week12.md",
     "attatchments/Pasted image 20261108235925.png",
     "attatchments/Pasted image 20261108235826.png",
     "attatchments/Pasted image 20261108235637.png",
@@ -217,10 +218,8 @@
     "attatchments/Pasted image 20261108232854.png",
     "attatchments/Pasted image 20261108232014.png",
     "attatchments/Pasted image 20261108230858.png",
-    "attatchments/Pasted image 20261108163427.png",
     "prog2/class lectures/inheritance.md",
     "prog2/class lectures/polymorphism.md",
-    "prog2/class lectures/maps and iterators.md",
     "Untitled.md",
     "prog2/questions from past exams.md",
     "prog2/class lectures/text_file_IO.md",
