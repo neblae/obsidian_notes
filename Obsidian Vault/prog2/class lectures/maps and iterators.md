@@ -120,3 +120,34 @@ ____
 			[(* iter).GetName();]
 			[iter->GetName();]
 			both do the same thing; -> is just easier to use 
+___
+7. #IteratingThroughMaps
+	1. **Map Iterators Visit Pairs** 
+		whereas a *vector(int)* iterator refers to a specific element, a *map* iterator refers the **entire key-value pair** (you can access both at the same time)
+	2. **Key and Value Access** 
+		[iter->first;] accesses the *key* of the pair (or [(* iter).first;] )
+		[iter->second;] accesses the *value* of the pair (or [(* iter).second;])
+	3. **Loop Across a Map** 
+		![[Pasted image 20261108230858.png|524]]
+	4. **Map Iteration is Sorted by Key** 
+		when sorted, only the *keys* are **sorted** - it doesn't matter what the values are
+		- Insertion (when you first add the values into map) 
+			22, 19, 30, 17
+		- Iteration (after added into the map)
+			17, 19, 22, 30
+	5. **Values Can Change, Key Cannot**
+	![[Pasted image 20261108232014.png]]
+___
+8. #SearchingMapwithfind 
+	1. **You must first check the key's existence: Why?**
+		[cout << studentScores["Morgan"] << end;]
+		- if the *key* is **missing**, then [] will make a new pair with the **default integer value 0** 
+		- if you **don't want the map to be modified,** use [find()] 
+	2. [find()] **returns an iterator** 
+		[studentScores.find("Taylor")] returns an iterator to the matching pair (if the key exists) 
+	3. **Test for an Existing Key** 
+	![[Pasted image 20261108232854.png]]
+	4. **Test for a Missing Key** 
+	![[Pasted image 20261108232916.png]]
+	5. **Retrieve a Found Pair Through Its Iterator** 
+	![[Pasted image 20261108233311.png]]
