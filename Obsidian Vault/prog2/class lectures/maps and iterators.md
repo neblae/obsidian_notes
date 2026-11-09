@@ -90,9 +90,10 @@ ___
 		- [end()] is an **iterator** located **one past the last element** 
 			- **never deference [end()]** 
 	2. **Standard Iterator Loop**
-		[for (iter = numbers.begin(); iter != numbers.end(); ++iter) {
+		[for (auto iter = numbers.begin(); iter != numbers.end(); ++iter) {
 			[cout << * iter << endl;]
 		- * iter reads the current element being incremented 
+		- the *auto* type when declaring the iter **allows C++ to assume the specific iterator type form the container's [begin()] or [end()] methods**  
 	3. **Move Forward and Back** 
 		![[Pasted image 20261108163134.png|431]]
 	4. **Vector Iterator Arithmetic** 

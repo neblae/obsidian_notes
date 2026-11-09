@@ -9,3 +9,8 @@ work on minesweeper
 		- two approaches:
 			- four layers
 			- three layers 
+	- lowkey when you start working on this please go through the 
+
+for lab 9 #include <iomanip> 
+
+extra credit - 
