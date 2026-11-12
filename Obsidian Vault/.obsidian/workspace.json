@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "prog2/project notes/memory match EC.md",
+                "file": "prog2/project notes/project3/plan.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "memory match EC"
+              "title": "plan"
             }
           }
         ],
@@ -57,7 +57,7 @@
               "state": {
                 "sortOrder": "alphabetical",
                 "autoReveal": false,
-                "showSearch": false,
+                "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
@@ -98,8 +98,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "ebcace70eb92d21c",
@@ -207,10 +206,13 @@
   },
   "active": "80f8626bccae5420",
   "lastOpenFiles": [
-    "prog2/discussion lectures/week12.md",
-    "prog2/project notes/memory match EC.md",
-    "prog2/project notes",
     "prog2/class lectures/maps and iterators.md",
+    "prog2/project notes/project3/plan.md",
+    "prog2/project notes/project3",
+    "prog2/class lectures/Command Line Arguments & makefile.md",
+    "prog2/project notes/memory match EC.md",
+    "prog2/discussion lectures/week12.md",
+    "prog2/project notes",
     "attatchments/Pasted image 20261108235925.png",
     "attatchments/Pasted image 20261108235826.png",
     "attatchments/Pasted image 20261108235637.png",
@@ -226,7 +228,6 @@
     "Untitled.md",
     "prog2/questions from past exams.md",
     "prog2/class lectures/text_file_IO.md",
-    "prog2/class lectures/Command Line Arguments & makefile.md",
     "prog2/class lectures/binary_files.md",
     "prog2/class lectures/data structures.md",
     "attatchments",
