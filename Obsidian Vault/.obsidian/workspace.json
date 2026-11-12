@@ -27,6 +27,20 @@
             "state": {
               "type": "markdown",
               "state": {
+                "file": "prog2/class lectures/text_file_IO.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "text_file_IO"
+            }
+          },
+          {
+            "id": "dbeca5509627db64",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
                 "file": "prog2/project notes/project3/plan.md",
                 "mode": "source",
                 "source": false
@@ -204,11 +218,14 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "01fb18d08d0b585e",
+  "active": "80f8626bccae5420",
   "lastOpenFiles": [
+    "prog2/class lectures/binary_files.md",
+    "prog2/project notes/project3/plan.md",
+    "prog2/class lectures/polymorphism.md",
+    "prog2/class lectures/text_file_IO.md",
     "attatchments/Pasted image 20261112002046.png",
     "prog2/class lectures/maps and iterators.md",
-    "prog2/project notes/project3/plan.md",
     "prog2/project notes/project3",
     "prog2/class lectures/Command Line Arguments & makefile.md",
     "prog2/project notes/memory match EC.md",
@@ -223,13 +240,9 @@
     "attatchments/Pasted image 20261108232916.png",
     "attatchments/Pasted image 20261108232854.png",
     "attatchments/Pasted image 20261108232014.png",
-    "attatchments/Pasted image 20261108230858.png",
     "prog2/class lectures/inheritance.md",
-    "prog2/class lectures/polymorphism.md",
     "Untitled.md",
     "prog2/questions from past exams.md",
-    "prog2/class lectures/text_file_IO.md",
-    "prog2/class lectures/binary_files.md",
     "prog2/class lectures/data structures.md",
     "attatchments",
     "prog2/class lectures",

@@ -4,9 +4,14 @@
 
 #ifndef PROJECT3_VD_WELCOMEWINDOW_H
 #define PROJECT3_VD_WELCOMEWINDOW_H
+#include <fstream>
 
-#include
-class welcomewindow {
+class welcomeWindow {
+public:
+    int colCount;
+    int rowCount;
+
+    
 };
 
 
