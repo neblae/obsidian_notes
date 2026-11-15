@@ -45,4 +45,19 @@ _____
 			the compiler automatically knows the **arguments** and **return types**, so you don't need to rewrite anything 
 ___
 3. **Passing Function Pointers to a Sort Function** 
-	
+	1. **Why pass a Comparison Function?** 
+		- assume you want to write a *sorting function* that can sort a vector[int] in one of two ways:
+			- *Ascending* - low to high, so function returns **true** when a > b
+			- *Descending* - high to low, so function returns **true** when a < b 
+		- instead of **writing two separate sorting functions**, you can instead write one that **changes the sorting algorithm based on which** *function pointer* is passed in: 
+			- [ void SortStuff(vector < int >& numbers, bool (* compare)(int, int))] 
+			- where the **first** argument is a **reference to the vector**, and the **second** argument is a *pointer to a function* that **takes two integers and returns bool** 
+	2. **How to Call the Comparison** 
+		![[Pasted image 20261115170943.png]]this functions the same **no matter which comparison type is passed in**; it either sorts low to high, or high to low. 
+		- in this case, *function pointers* allows us to **avoid code duplication** 
+	3. **One Algorithm, Multiple Behaviors** 
+		- as previous described, function names are passed **without ()**, since the *function pointer* wants the **address** of the *prototype function* in order to access its code.
+			[SortStuff(numbers, **Ascending** )]
+			[SortStuff(numbers, **Descending**)] 
+	4. **Sorting Code for Reference:** 
+		![[Pasted image 20261115171351.png]]
