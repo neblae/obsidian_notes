@@ -61,3 +61,5 @@ ___
 			[SortStuff(numbers, **Descending**)] 
 	4. **Sorting Code for Reference:** 
 		![[Pasted image 20261115171351.png]]
+____
+4. #ArraysofFunctionPointers-Calculators
