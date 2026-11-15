@@ -63,4 +63,9 @@ ___
 		![[Pasted image 20261115171351.png]]
 ____
 4. #ArraysofFunctionPointers-Calculators
-	1. 
+	1.  **Arrays Can Store Functions** 
+		if you have a *set of functions* that all have the **same return/argument** types, they are compatible to be stores in an **array** with **one function-pointer type** 
+			ex. **calculator** functions Add, Subtract, Multiply, and Dive **all return double and take two double parameters**, so 
+				[ double ( * operations[4](double, double))]
+			- where [4] makes *operations* an array of **four function pointers** 
+			- each element stores a *function address* 

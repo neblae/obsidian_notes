@@ -1,0 +1,31 @@
+{
+  "backgroundTheme": "seasons and holidays",
+  "customBackground": "",
+  "localBackgrounds": [],
+  "showTopLeftSearchButton": true,
+  "topLeftSearchProvider": {
+    "command": "switcher:open",
+    "display": "Obsidian Core Quick Switcher"
+  },
+  "showTime": true,
+  "timeFormat": "24-hour",
+  "showGreeting": true,
+  "greetingText": "Hello, Victor.",
+  "showInlineSearch": true,
+  "inlineSearchProvider": {
+    "command": "switcher:open",
+    "display": "Obsidian Core Quick Switcher"
+  },
+  "showRecentFiles": false,
+  "showBookmarks": true,
+  "bookmarkSource": "group",
+  "bookmarkGroup": "Quick Links",
+  "showQuote": true,
+  "quoteSource": "My quotes",
+  "customQuotes": [
+    {
+      "text": "Yes, I am a criminal. My crime is that of curiosity.",
+      "author": "The Mentor, Hacker Manifesto"
+    }
+  ]
+}

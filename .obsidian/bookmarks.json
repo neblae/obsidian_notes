@@ -1,0 +1,16 @@
+{
+  "items": [
+    {
+      "type": "group",
+      "ctime": 1794784027000,
+      "title": "Quick Links",
+      "items": [
+        { "type": "file", "ctime": 1794784027000, "path": "Obsidian Vault/prog2/class lectures/function pointers.md" },
+        { "type": "file", "ctime": 1794784027000, "path": "Obsidian Vault/prog2/exam reviews/midterm 2.md" },
+        { "type": "file", "ctime": 1794784027000, "path": "Obsidian Vault/prog2/questions from past exams.md" },
+        { "type": "file", "ctime": 1794784027000, "path": "Obsidian Vault/prog2/project notes/project3/plan.md" },
+        { "type": "file", "ctime": 1794784027000, "path": "UF/classes/prog2/p3gradingspecs.md" }
+      ]
+    }
+  ]
+}
