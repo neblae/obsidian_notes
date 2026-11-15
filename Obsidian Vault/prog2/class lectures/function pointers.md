@@ -63,3 +63,4 @@ ___
 		![[Pasted image 20261115171351.png]]
 ____
 4. #ArraysofFunctionPointers-Calculators
+	1. 
