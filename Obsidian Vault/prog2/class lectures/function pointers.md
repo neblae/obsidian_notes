@@ -158,5 +158,5 @@ ___
 _____
 ## Templates as an Alternative 
 1. **Using templates instead of a pointer type** 
-	a *function template* can **accept a comparison**
+	a *function template* can **accept a comparison** without having to type out the *entire function pointer syntax* 
 	
