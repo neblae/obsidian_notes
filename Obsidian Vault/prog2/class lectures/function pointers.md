@@ -174,4 +174,4 @@ _____
 		*template* < *typename* T>
 		**void SortStuff**(vector < **int** >& numbers, *T* compareFunction);
 3. **Incorrect Argument Styles** 
-	
+	since T can be anything, if you were to submit some kind of **int** for example, the function cannot work. you must make sure what is being submitted into the T slot is correct 
