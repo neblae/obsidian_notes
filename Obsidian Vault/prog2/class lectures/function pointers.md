@@ -125,3 +125,20 @@ ___
 		becomes -> 
 		[void SortStuff(vector< int>& numbers, Comparison compare)]
 2. **Arrays of Function Pointers** 
+	since we've set a *type alias* Comparison for different function pointers, we can now **set an array** to hold various *function pointers*:
+		Comparison funcs[3];
+		funcs[0] = Ascending; 
+		funcs[1] = Descending;
+		funcs[2] = nullptr;
+	index[2] means the pointer doesn't **refer to a function, but refers to nullptr instead**; as such, check to see if the index **calls a null function pointer** 
+		if (funcs[2] != nullptr) {
+			funcs[2](10, 5);
+			}
+3. **Vectors of Function Pointers** 
+	the vector stores functions the same way it stores other values, except its elements are *function pointers* 
+		vector< Comparison > comparers;
+		comparers.push_back(Ascending)
+		comparers.push_back(Descending)
+		cout << comparers[1] (10, 5) << endl; 
+4. **Maps of Function Pointers** 
+	the *key* chooses a *function address*; the final parentheses call that function 
