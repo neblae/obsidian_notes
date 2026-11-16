@@ -120,3 +120,8 @@ ___
 	a *type alias* is an alternative name for **an existing data type** 
 		*using* Comparison = *bool* ( * myPtr)(int, int);
 		Comparison myPtr = Ascending
+	now, Comparison stands for a pointer to function that takes **two integers** and returns **bool** - can be reassigned to any compatible function 
+		void SortStuff(vector< int>& numbers, bool ( * compare)(int, int)); 
+		becomes -> 
+		[void SortStuff(vector< int>& numbers, Comparison compare)]
+2. **Arrays of Function Pointers** 
