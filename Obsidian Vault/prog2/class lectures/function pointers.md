@@ -98,3 +98,25 @@ ___
 4. **Calling a Function from an Array**
 	operations[2] (10, 5);
 		since [2] == MULTIPLY, which returns the address to the Multiply function, the array takes in values (10, 5), and returns **42**  
+5. **Menu Choices vs Array Indices** 
+	![[Pasted image 20261115212853.png]]
+6. **The Three Ways to Select an Operation:**
+	1. *Function-pointer array* 
+		**double** result = operations[opIndex -1] (value1, value2);
+	2. *Using if / else if* 
+		![[Pasted image 20261115213209.png]]
+	3. *Using* [switch] 
+		![[Pasted image 20261115213251.png]]
+7. **Checking User Input** 
+	- valid menu options are between [1 and 4] - check for index outside 
+	- check for division by zero before calling [Divide] 
+___
+## 5. Simplifying Function Pointers with using 
+1. **Why Use** [using] **?**
+	writing *function pointer* syntax can get a bit convoluted:
+		*bool* ( * myPtr)(int, int) = Ascending; 
+	as an alternative, you can write a *type alias* for this entire chunk: 
+		[*bool* ( * myPtr)(int, int)]
+	a *type alias* is an alternative name for **an existing data type** 
+		*using* Comparison = *bool* ( * myPtr)(int, int);
+		Comparison myPtr = Ascending
