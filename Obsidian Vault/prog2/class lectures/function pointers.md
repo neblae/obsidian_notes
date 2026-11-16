@@ -159,4 +159,8 @@ _____
 ## Templates as an Alternative 
 1. **Using templates instead of a pointer type** 
 	a *function template* can **accept a comparison** without having to type out the *entire function pointer syntax* 
+		*using* Comparison = *bool* ( * )(int, int) --> *template* < *typename* T >
+		so then you can use:
+			template < typename T >
+			void SortStuff(vector< int >& numbers, T compareFunction);
 	
