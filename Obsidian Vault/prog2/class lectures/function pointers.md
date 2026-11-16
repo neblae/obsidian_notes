@@ -163,4 +163,14 @@ _____
 		so then you can use:
 			template < typename T >
 			void SortStuff(vector< int >& numbers, T compareFunction);
-	
+		![[Pasted image 20261116000556.png]]
+2. **Three Styles**
+	1. Raw pointer:
+		**void** **SortStuff**(vector < **int** >& numbers, **bool** ( * compare)(**int**, **int**));
+	2. Alias:
+		*using* Comparison = **bool** ( * )(int, int); 
+		**void SortStuff**(vector < **int** >& numbers, Comparison compare); 
+	3. Template:
+		*template* < *typename* T>
+		**void SortStuff**(vector < **int** >& numbers, *T* compareFunction);
+3. 
