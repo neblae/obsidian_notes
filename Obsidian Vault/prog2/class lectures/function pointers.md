@@ -75,3 +75,17 @@ ___
 			[ double ( * operations[4](double, double))]
 		- where [4] makes *operations* an array of **four function pointers** 
 		- each element stores a *function address* 
+2. **Assigning Functions**
+	remember [operations[4]] is of size [4];
+		operations[0] = Add;
+		operations[1] = Subtract;
+		operations[2] = Multiply;
+		operations[3] = Divide;
+			  notice how each *function* doesn't have [()] - we want the *function address* 
+		operations[0] --> Add();
+		operations[1] --> Subtract();
+		operations[2] --> Multiply();
+		operations[3] --> Divide();
+			now, each operation index **calls its respective function** 
+3. **What is an** [enum] **?** 
+	
