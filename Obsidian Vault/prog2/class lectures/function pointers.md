@@ -157,4 +157,6 @@ ___
 		map< string, Comparison> operations;
 _____
 ## Templates as an Alternative 
-1. 
+1. **Using templates instead of a pointer type** 
+	a *function template* can **accept a comparison**
+	
