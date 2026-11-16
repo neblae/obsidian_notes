@@ -88,4 +88,13 @@ ___
 		operations[3] --> Divide();
 			now, each operation index **calls its respective function** 
 3. **What is an** [enum] **?** 
-	
+	an *enumeration* is a data type that allows you to **select names** for a **fixed set of integer constants** 
+		syntax:
+			*enum* **enumname** {value1, value2, value3}
+	when you set a value to any constant in the *enumeration* (i.e. {RED, YELLOW, GREEN}) it automatically **sets each value to its position in the set** - as such YELLOW == 1, because it is in the **second position in the set** 
+		going back to the operations[] example, you could set:
+			*enum* **OPERATIONS** {ADD} = Add; 
+			where value **ADD** will return the **address of the function Add** 
+4. **Calling a Function from an Array**
+	operations[2] (10, 5);
+		since [2] == MULTIPLY, which returns the address to the Multiply function, the array takes in values (10, 5), and returns **42**  
