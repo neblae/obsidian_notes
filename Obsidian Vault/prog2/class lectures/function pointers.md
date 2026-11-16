@@ -26,7 +26,7 @@
 
 ___
 
-## 2. Declaring and Reassigning Function Pointers
+## 2. How to Declare and Reassigning Function Pointers
 1. **Function Pointer Types and Signatures** 
 	every time you declare a *function pointer*, you must make sure it has **identical return and parameter types with its** *prototype function*: 
 		int Random100() -->  [int (* functPtr)() = Random100;]
@@ -135,10 +135,26 @@ ___
 			funcs[2](10, 5);
 			}
 3. **Vectors of Function Pointers** 
-	the vector stores functions the same way it stores other values, except its elements are *function pointers* 
+	the vector stores functions the same way it stores other values, except its elements are *function pointers:* 
 		vector< Comparison > comparers;
 		comparers.push_back(Ascending)
 		comparers.push_back(Descending)
 		cout << comparers[1] (10, 5) << endl; 
 4. **Maps of Function Pointers** 
-	the *key* chooses a *function address*; the final parentheses call that function 
+	the *key* chooses a *function address*; the final parentheses call that function:
+		map< string, Comparison> operations; 
+		operations["Ascending"] = Ascending;
+		operations["Descending"] = Descending;
+		cout << operations["Ascending"] (10, 5) << endl; 
+5. **Readability**
+	for reference, here is before *type alias* : 
+		bool (* funcs[3]) (int, int);
+		vector< bool (* )(int, int)> comparers;
+		map< string, bool (* )(int, int)> operations;
+	turns into:
+		Comparison funcs[3];
+		vector< Comparison> comparers;
+		map< string, Comparison> operations;
+_____
+## Templates as an Alternative 
+1. 
