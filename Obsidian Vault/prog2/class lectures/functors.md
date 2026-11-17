@@ -61,6 +61,37 @@ ___
 		**int** _ x; 
 	};
 	- here, the _ x is the **configuration**, and the *call operator* checks its input against it
-1. **Reusing One Functor Type with** [count_if] 
+**Reusing One Functor Type with** [count_if] 
 	count_if(numbers.begin(), numbers.end(), GreaterThan_X(10)); count_if(numbers.begin(), numbers.end(), GreaterThan_X(20)); count_if(numbers.begin(), numbers.end(), GreaterThan_X(35));
 	- each time the predicate is called, a separate temporary object is created holding a different threshold 
+___
+## Templates with Functions and Functors 
+*function templates* lets different implementations within a function to work, **even if they have different data types** 
+
+template < typename CustomComparison>
+void SortStuff(vector< int>& numbers, CustomComparison compare) {
+    for (int pass = 0; pass < (int)numbers.size(); pass++) {
+        for (int i = 0; i + 1 < (int)numbers.size(); i++) {
+            if (compare(numbers[i], numbers[i + 1])) {
+                int temp = numbers[i];
+                numbers[i] = numbers[i + 1];
+                numbers[i + 1] = temp;
+            }
+        }
+    }
+}
+**Calling between Functors and Function Pointers**
+	SortStuff(numbers, AscendingFunction);
+	SortStuff(numbers, DescendingFunctor()); 
+	- since function templates were used, the code in [SortStuff] invoked the correct comparison for both cases 
+____
+## Introduction to std::Function 
+- *std::function* is a standard library *wrapper* that holds a **callable** with a **specified call signature:** its return type and parameter types
+	- proved by < functional > 
+- a [function < bool (int) >] variable stores some kind of operation that deduces, based on the integers input, that returns a boolean value 
+1. **What is** [std::function]?
+	wrapper class holding **callable objects**; it can hold compatible *function pointers* OR *functors*
+	syntax: 
+		function< ReturnType(ParameterTypes)> variableName; 
+2. **Storing and Calling a Function** 
+	function< 
