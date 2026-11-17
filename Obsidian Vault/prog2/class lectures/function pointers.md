@@ -1,4 +1,4 @@
-## 1. Functions Have Addresses
+## Functions Have Addresses
 1. **Calling a function vs. Referring to a function**
 	- Calling a function:
 	original way to use a function; by calling a function with **parenthesis** (i.e. [Random100()]) it executes the function, taking in some value, and directly returns it 
@@ -26,7 +26,7 @@
 
 ___
 
-## 2. How to Declare and Reassigning Function Pointers
+## How to Declare and Reassigning Function Pointers
 1. **Function Pointer Types and Signatures** 
 	every time you declare a *function pointer*, you must make sure it has **identical return and parameter types with its** *prototype function*: 
 		int Random100() -->  [int (* functPtr)() = Random100;]
@@ -48,7 +48,7 @@ ___
 
 ___
 
-## 3. Passing Function Pointers to a Sort Function
+## Passing Function Pointers to a Sort Function
 1. **Why pass a Comparison Function?** 
 	- assume you want to write a *sorting function* that can sort a vector[int] in one of two ways:
 		- *Ascending* - low to high, so function returns **true** when a > b
@@ -68,7 +68,7 @@ ___
 
 ___
 
-## 4. Arrays of Function Pointers (Calculators)
+## Arrays of Function Pointers (Calculators)
 1. **Arrays Can Store Functions** 
 	if you have a *set of functions* that all have the **same return/argument** types, they are compatible to be stores in an **array** with **one function-pointer type** 
 		ex. **calculator** functions Add, Subtract, Multiply, and Dive **all return double and take two double parameters**, so 
@@ -111,7 +111,7 @@ ___
 	- valid menu options are between [1 and 4] - check for index outside 
 	- check for division by zero before calling [Divide] 
 ___
-## 5. Simplifying Function Pointers with using 
+## Simplifying Function Pointers with using 
 1. **Why Use** [using] **?**
 	writing *function pointer* syntax can get a bit convoluted:
 		*bool* ( * myPtr)(int, int) = Ascending; 
@@ -175,3 +175,12 @@ _____
 		**void SortStuff**(vector < **int** >& numbers, *T* compareFunction);
 3. **Incorrect Argument Styles** 
 	since T can be anything, if you were to submit some kind of **int** for example, the function cannot work. you must make sure what is being submitted into the T slot is correct 
+_____
+## Storing Function Pointers in a Class 
+1. **Storing Functions Inside a Class**
+	you can store a *function pointer* as a *member variable* for a class:
+		Class **FunctionHolder** {
+		private:
+			void ( *  singleAction)() };
+	you can then pass the *function pointer* as an argument in different methods:
+		vector< void ( * )()> _ actions; 
