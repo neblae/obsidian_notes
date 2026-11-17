@@ -178,9 +178,31 @@ _____
 _____
 ## Storing Function Pointers in a Class 
 1. **Storing Functions Inside a Class**
-	you can store a *function pointer* as a *member variable* for a class:
+	you can store one *function pointer* as a *member variable* for a class:
 		Class **FunctionHolder** {
 		private:
 			void ( *  singleAction)() };
 	you can then pass the *function pointer* as an argument in different methods:
 		vector< void ( * )()> _ actions; 
+	then, vector _ actions holds a bunch of different functions to use
+2. **Single Pointer** 
+	singleAction = nullptr; // initalizes the function pointer
+	
+	**void SetSingleAction**(void ( * a)()) {
+		singleAction = a;
+		} // every time you pass in a *functor* , the singleAction will use it - you can change this at any time 
+		
+	make sure the *functor* isn't pointing at nullptr:
+		if (singleAction != nullptr) {
+			singleAction(); }
+3. **Adding Multiple Functions** 
+	in order to **add functions** to a vector:
+		**void AddAction**(void ( * a )()) {
+			actions.push_back(a)
+			}
+	then, accessing each function: 
+		**void DoAllActions**() { 
+			for (int i = 0; i < (int)actions.size(); i++ {
+				actions[i] (); 
+				}
+	
