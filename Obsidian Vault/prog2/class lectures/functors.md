@@ -123,3 +123,5 @@ ____
 		vector<function<FunctionType>> _actions;
 	};
 	```
+- [FunctionType] can be void() OR bool(int) - either way, the function works 
+2. 
