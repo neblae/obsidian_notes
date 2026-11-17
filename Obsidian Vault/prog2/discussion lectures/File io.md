@@ -46,7 +46,7 @@ Parsing
 	2. go through arguments
 		check args are valid before or while trying to use them
 		can have multple methods
-			something like ./proj2.bin [name] [age] [method] will have 4 arguments, but you will do 4-1 since ./prog2.bin counts as an argument when input into the CLI 
+			something like `./proj2.bin [name] [age] [method]` will have 4 arguments, but you will do 4-1 since ./prog2.bin counts as an argument when input into the CLI 
 	3. keep track of what argument you're on 
 		different arguments have different numbers of files necessary
 		can have multiple operations

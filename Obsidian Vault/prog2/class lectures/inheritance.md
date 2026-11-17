@@ -3,12 +3,12 @@
 		**Encapsulation** - Groups data and functions into objects
 		**Inheritance** - Builds new classes that reuse functionality from existing classes
 		**Polymorphism** - Uses a common interface for different types of objects 
-		one way to think of these pillars is how a [Hero] and an [Enemy] can both share functions of a [Character]
+		one way to think of these pillars is how a `Hero` and an `Enemy` can both share functions of a `Character`
 	2. Base and Derived Classes:
 		The **Base (or parent)** class is the class that **provides the shared functionality** 
-			would be the [Character] class
+			would be the `Character` class
 		The **Derived (or child)** class is the class that **receives shared functionality** 
-			would be the [Hero] or [Enemy] class
+			would be the `Hero` or `Enemy` class
 	3. **Inheritance Syntax and IS-A**
 		class Hero : public Character {
 			your hero-specific members will go here!
@@ -16,7 +16,7 @@
 ____
 2. #Inheritance/CodeResuse 
 	1. **Why Share Code?**
-		If you have two classes that share member variables (like [Hero] and [Enemy]), using common base class avoids duplicate implementations
+		If you have two classes that share member variables (like `Hero` and `Enemy`), using common base class avoids duplicate implementations
 	2. **Shared Base, Different Derived Classes**
 		![[Pasted image 20261030121249.png|397]]
 	3. **Each Object Keeps its Own State:** 
@@ -24,13 +24,13 @@ ____
 ____
 3. #AccessSpecifiersinInheritance
 	1. **Three Access Specifiers:**
-		- whereas i'm used to using **public** or **private** in classes, there is also [protected], which lets derived classes use a member without **making it publicly accessible** 
+		- whereas i'm used to using **public** or **private** in classes, there is also `protected`, which lets derived classes use a member without **making it publicly accessible** 
 		![[Pasted image 20261030121832.png|451]]
 	2. **Applying the Rules**
-		- If you have a [Character] with a **private** [Name] and **protected** [health], a derived [Hero] class can modify health **directly**, but has to use **GetName() to read [name]**  
+		- If you have a `Character` with a **private** `Name` and **protected** `health`, a derived `Hero` class can modify health **directly**, but has to use **GetName() to read `name`**  
 		![[Pasted image 20261030122044.png|408]]
 	3. **Public Inheritance**
-		in the case of [ class Hero : public Character]:
+		in the case of `class Hero : public Character`:
 		- public members stay public 
 		- protected members stay protected
 		- private members stay inaccessible directly in Hero
@@ -54,10 +54,10 @@ ___
 		public:
 			Weapon weapon; 
 		};
-		- the [Hero] **HAS A** [Weapon]; containment just means the object created is stored as a member of [Hero], and it doesn't turn the owner of the member into that type 
+		- the `Hero` **HAS A** `Weapon`; containment just means the object created is stored as a member of `Hero`, and it doesn't turn the owner of the member into that type 
 	3. **Using a Contained Object:**
 		player.weapon.Attack(); -> this is direct access to public member
-		player.UseWeapon(); -> this is accessed through the [Hero] function 
+		player.UseWeapon(); -> this is accessed through the `Hero` function 
 ___
 6. #PrivateandProtected 
 	1. **Three Different Types of Inheritance Rules**
@@ -73,7 +73,7 @@ ____
 7. #Constructors/Inheritance 
 	1. **A Derived Object has a Base Part**
 	   a **base part** is the information a derived class (Hero) got from its parent class (Character)
-		- you must execute the base-class constructor (Character) [before] the derived class (Hero)
+		- you must execute the base-class constructor (Character) **before** the derived class (Hero)
 			- Character constructor -> Hero constructor 
 	2. **Constructor Initializer lists**
 	   ![[Pasted image 20261030215245.png|456]]
@@ -90,19 +90,19 @@ ___
 	1. **Multiple Inheritance:**
 		- a class can inherit information from different bases/parents 
 			 class FlyingCar : public Car, public Airplane {};
-		- the FlyingCar has driving functionality of both [Car] and [Airplane]
+		- the FlyingCar has driving functionality of both `Car` and `Airplane`
 	2. **The Diamond Problem: Why is it Ambiguous?**
-		- if you remove [virtual]
+		- if you remove `virtual`
 			class Car : public Vehicle {}; 
 			class Airplane : public Vehicle {}; 
 			FlyingCar : public Car, public Airplane {};
 		![[Pasted image 20261030234911.png|413]]
-		- FlyingCar inherits [Vehicle] twice, since [Car] and [Airplane] are Vehicles
+		- FlyingCar inherits `Vehicle` twice, since `Car` and `Airplane` are Vehicles
 		**The compiler doesn't know which vehicle path to use!**
 	3. **How to fix this?**
-		class Car : [virtual] Vehicle {}; 
-		class Airplane : [virtual] public Vehicle {}; 
-		FlyingCar : public Car, [virtual] Airplane {};
+		class Car : `virtual` Vehicle {}; 
+		class Airplane : `virtual` public Vehicle {}; 
+		FlyingCar : public Car, `virtual` Airplane {};
 		- both intermediate classes share only one vehicle base 
 	4. **Private and Protected Attributes**
 		![[Pasted image 20261030235149.png|402]]
@@ -113,14 +113,14 @@ ___
 		: Vehicle(n, count), Car(n, count, wheels), Airplane(n, count, wings) {}
 		- now, you input arguments from vehicle -> car -> airplane -> flyingcar 
 	6. **What is a virtual function?**
-	   a [virtual] function is a member function from a base class that was declared using the virtual keyword 
-		- virtual functions can be over-riden in derived classes in order to achieve [runtime polymorphism]
+	   a `virtual` function is a member function from a base class that was declared using the virtual keyword 
+		- virtual functions can be over-riden in derived classes in order to achieve **runtime polymorphism**
 			- **runtime polymorphism:** the functions executed may not know what object it will be called on, so it will determine what the specific method it implements is **during program execution** instead
 	 7. **Virtual function syntax:**
 		- when calling a function:
-			- [virtual] *class* **function** {}
+			- `virtual` *class* **function** {}
 		- when overriding a function:
-			- *class* **function** [override] {}
+			- *class* **function** `override` {}
 	8. **What is an abstract base class?**
 		- a class that is meant to **only be inherited from** 
 		- you can't create objects of an abstract base class directly 

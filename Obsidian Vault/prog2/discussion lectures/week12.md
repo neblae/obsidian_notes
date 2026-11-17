@@ -1,6 +1,6 @@
 work on minesweeper 
 	- create a plan
-		use 2d vectors [vector[vector[int]]]
+		use 2d vectors `vector<vector<int>>`
 	- debugging
 	- UML diagram
 		different way to set up a class
