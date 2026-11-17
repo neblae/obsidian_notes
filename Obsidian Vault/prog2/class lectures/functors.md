@@ -114,3 +114,12 @@ ____
 - with `std::function`:
 	`function<void()> _singleAction;` 
 	`vector<function<void()>> _actions;` 
+		the syntax becomes much simpler, since the callable operations are **embedded into the vector** based on the **return type** of the *function pointer* 
+1. **Using Templates in Function Holders**
+	```
+	template <typename FunctionType>
+	class FunctionHolder {
+		function<FunctionType> _singleAction;
+		vector<function<FunctionType>> _actions;
+	};
+	```
